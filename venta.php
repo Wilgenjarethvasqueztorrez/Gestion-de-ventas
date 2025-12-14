@@ -132,7 +132,7 @@
               <tr>    
                 <td><strong><?php echo $venta['producto_nombre']; ?></strong></td>    
                 <td>$<?php echo number_format($venta['precio'], 0); ?></td>    
-                <td><?php echo $venta['cantidad_venta']; ?></td>    
+                <td><span class="badge bg-warning text-dark"><?php echo $venta['cantidad_venta']; ?> unidades</span></td>  
                 <td><?php echo date('d/m/Y', strtotime($venta['fecha_inicio'])); ?></td>    
                 <td class="acciones">    
                   <a href="Formularios/Venta/EditarVenta.php?Id=<?php echo $venta['id']; ?>" class="btn btn-warning btn-sm">    

@@ -1,57 +1,429 @@
-/* General */
-body {
-  background: linear-gradient(to right, #e0f7fa, #f1f8e9);
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
+body {  
+  background-color: #0a1929; /* Azul marino profundo (océano Grand Line) */  
+  color: #ff6b35; /* Naranja vibrante (Luffy) */  
+  font-family: 'Segoe UI', sans-serif;  
+  margin: 0;  
+  padding: 0;  
+}  
+  
+/* Encabezado */  
+h1 {  
+  font-weight: bold;  
+  letter-spacing: 1px;  
+  margin-top: 20px;  
+}  
+  
+h1, h2, h3, h4, h5, h6 {    
+  color: #ffd700 !important; /* Dorado (One Piece) */    
+}  
+  
+/* Contenedor de tablas */    
+.table-container {    
+  background-color: #132030 !important; /* Azul marino oscuro */    
+  border-radius: 10px;    
+  padding: 20px;    
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);    
+  border: 2px solid rgba(255, 215, 0, 0.3); /* Borde dorado tesoro */    
+}    
+    
+/* Tablas */    
+.table {    
+  background-color: transparent !important;    
+  color: #ff6b35 !important;    
+}    
+    
+.table thead th {    
+  background-color: #1a2332 !important; /* Azul oscuro */    
+  color: #ffd700 !important; /* Dorado */    
+  border-bottom: 3px solid #ffd700 !important;    
+  font-weight: bold;    
+  text-transform: uppercase;  
+  letter-spacing: 1px;  
+}    
+    
+.table tbody tr:hover {    
+  background-color: rgba(255, 107, 53, 0.15) !important;    
+}    
+    
+.table tbody td {    
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2) !important;    
+}   
+  
+/* Filas de datos */    
+.table tbody tr {    
+    background-color: rgba(19, 32, 48, 0.3) !important;    
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1) !important;    
+    transition: all 0.3s ease !important;    
+}    
+    
+.table tbody tr:hover {    
+    background-color: rgba(255, 107, 53, 0.15) !important;    
+    transform: translateX(5px) !important;    
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3) !important;    
+}    
+    
+/* Celdas de datos */    
+.table tbody td {    
+    background-color: transparent !important;    
+    color: #ff6b35 !important;    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;    
+    padding: 12px 8px !important;    
+    vertical-align: middle !important;    
+}    
+  
+.table .badge {    
+    padding: 5px 10px !important;    
+    font-weight: 500 !important;    
+    border: 1px solid rgba(255, 215, 0, 0.3) !important;    
+}    
+  
+/* Botones */    
+.btn {    
+    background: linear-gradient(90deg, #ff6b35, #c0392b) !important; /* Rojo Luffy */    
+    border: 2px solid #ffd700 !important; /* Borde dorado */    
+    color: white !important;    
+    font-weight: 600;    
+    transition: all 0.3s ease;    
+    text-transform: uppercase;  
+    letter-spacing: 0.5px;  
+}    
+    
+.btn:hover {    
+    background: linear-gradient(90deg, #ffd700, #ff6b35) !important;    
+    transform: scale(1.05) rotate(1deg) !important;  
+    box-shadow: 0px 0px 15px #ffd700 !important;    
+    color: #0a1929 !important;    
+}    
+    
+.btn-success {    
+    background: linear-gradient(90deg, #43a047, #2e7d32) !important; /* Verde Zoro */    
+    border-color: #66bb6a !important;  
+}    
+    
+.btn-danger {    
+    background: linear-gradient(90deg, #c0392b, #e74c3c) !important; /* Rojo Akainu */    
+    border-color: #e57373 !important;  
+}    
+    
+.btn-warning {    
+    background: linear-gradient(90deg, #ffd700, #ffa000) !important; /* Dorado tesoro */    
+    color: #0a1929 !important;    
+    border-color: #ffb300 !important;  
+}    
+  
+/* Estados especiales */    
+.table tbody tr:nth-child(even) {    
+    background-color: rgba(26, 35, 50, 0.4) !important;    
+}    
+    
+/* Celdas con texto importante */    
+.table tbody td strong {    
+    color: #ffd700 !important;    
+}    
+    
+/* Celdas con horas o fechas */    
+.table tbody td:contains("hrs"),    
+.table tbody td:contains("/") {    
+    font-family: 'Courier New', monospace !important;    
+    color: #64b5f6 !important;    
+}    
+  
+/* Contenedores de tablas del dashboard */    
+.dashboard-table-container {    
+    background-color: rgba(19, 32, 48, 0.4) !important;    
+    border-radius: 12px !important;    
+    padding: 20px !important;    
+    margin-bottom: 20px !important;    
+    border: 2px solid rgba(255, 215, 0, 0.3) !important;    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;    
+}    
+    
+/* Tablas específicas del dashboard */    
+.dashboard-table-container .table {    
+    background-color: transparent !important;    
+    color: #ff6b35 !important;    
+    margin-bottom: 0 !important;    
+}    
+    
+/* Encabezados de tablas del dashboard */    
+.dashboard-table-container .table thead th {    
+    background-color: rgba(26, 35, 50, 0.8) !important;    
+    color: #ffd700 !important;    
+    border: none !important;    
+    padding: 15px 12px !important;    
+    font-weight: 600 !important;    
+    text-transform: uppercase !important;    
+    font-size: 0.85rem !important;    
+    letter-spacing: 0.5px !important;    
+}    
+    
+/* Filas de datos en tablas del dashboard */    
+.dashboard-table-container .table tbody tr {    
+    background-color: rgba(10, 25, 41, 0.3) !important;    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;    
+    transition: all 0.3s ease !important;    
+}    
+    
+.dashboard-table-container .table tbody tr:hover {    
+    background-color: rgba(255, 107, 53, 0.1) !important;    
+    transform: translateX(5px) !important;    
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.15) !important;    
+}    
+    
+/* Celdas de datos */    
+.dashboard-table-container .table tbody td {    
+    background-color: transparent !important;    
+    color: #ff6b35 !important;    
+    border: none !important;    
+    padding: 12px !important;    
+    vertical-align: middle !important;    
+}    
+    
+/* Texto fuerte en celdas */    
+.dashboard-table-container .table tbody td strong {    
+    color: #ffd700 !important;    
+    font-weight: 600 !important;    
+}    
+    
+/* Badges en tablas del dashboard */    
+.dashboard-table-container .badge {    
+    padding: 6px 12px !important;    
+    font-weight: 500 !important;    
+    font-size: 0.8rem !important;    
+    border-radius: 6px !important;    
+    border: 1px solid rgba(255, 215, 0, 0.3) !important;    
+}    
+    
+.dashboard-table-container .badge.bg-success {    
+    background: linear-gradient(135deg, #43a047, #2e7d32) !important;    
+    color: white !important;    
+}    
+    
+.dashboard-table-container .badge.bg-warning {    
+    background: linear-gradient(135deg, #ffd700, #ffa000) !important;    
+    color: #0a1929 !important;    
+}    
+    
+.dashboard-table-container .badge.bg-danger {    
+    background: linear-gradient(135deg, #c0392b, #e74c3c) !important;    
+    color: white !important;    
+}    
+    
+/* Estados especiales para tabla de empleados trabajando */    
+.dashboard-table-container .table tbody tr:nth-child(even) {    
+    background-color: rgba(26, 35, 50, 0.4) !important;    
+}    
+    
+/* Texto muted en tablas */    
+.dashboard-table-container .text-muted {    
+    color: rgba(255, 107, 53, 0.5) !important;    
+    font-style: italic !important;    
+}    
+  
+/* Nombre y apellido */  
+.nombre-apellido {  
+  display: flex;  
+  flex-direction: column;  
+  gap: 4px;  
+}  
+  
+.nombre-apellido span:first-child {  
+  color: #ffd700 !important;  
+  font-weight: 700;  
+}  
+  
+.nombre-apellido span:last-child {  
+  color: #64b5f6;  
+  font-size: 0.9em;  
+}  
+  
+/* Botones */  
+.btn svg {  
+  margin-right: 4px;  
+  vertical-align: middle;  
+}  
+  
+.acciones a {  
+  margin-right: 5px;  
+}  
+  
+/* DataTables adaptación */    
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {    
+  background: linear-gradient(90deg, #ff6b35, #c0392b) !important;    
+  border: 2px solid #ffd700 !important;    
+  color: white !important;    
+}    
+    
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {    
+  background: linear-gradient(90deg, #ffd700, #ff6b35) !important;    
+  color: #0a1929 !important;    
+}  
+  
+/* Componentes adicionales del proyecto */  
+.bg-primary {  
+  background-color: #ff6b35 !important; /* Naranja Luffy */  
+}  
+  
+.bg-info {  
+  background-color: #1e88e5 !important; /* Azul océano */  
+}  
+  
+.bg-success {  
+  background-color: #43a047 !important; /* Verde Zoro */  
+}  
+  
+.bg-warning {  
+  background-color: #ffd700 !important; /* Dorado tesoro */  
+}  
+  
+/* Sidebar adaptación */  
+.sidebar {  
+  background-color: #1a2332 !important; /* Azul oscuro */  
+  border-right: 3px solid #ffd700; /* Línea dorada */  
+}  
+  
+.sidebar .nav-link {  
+  color: #ff6b35 !important;  
+  transition: all 0.3s ease;  
+}  
+  
+.sidebar .nav-link:hover,  
+.sidebar .nav-link.active {  
+  background-color: rgba(255, 107, 53, 0.2) !important;  
+  color: #ffd700 !important;  
+  border-left: 4px solid #ffd700;  
+}  
+  
+/* Cards del dashboard */  
+.card {  
+  background: linear-gradient(135deg, #132030, #1a2332) !important;  
+  border: 2px solid rgba(255, 215, 0, 0.3) !important;  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);  
+  border-radius: 12px;  
+}  
+  
+.card-body {  
+  color: #ff6b35 !important;  
+}  
+  
+.card-body h5 {  
+  color: #ffd700 !important;  
+}  
+  
+/* Formularios */  
+.form-control {  
+  background-color: rgba(26, 35, 50, 0.9) !important;  
+  border: 2px solid rgba(255, 215, 0, 0.4) !important;  
+  color: #ff6b35 !important;  
+}  
+  
+.form-control:focus {  
+  background-color: rgba(26, 35, 50, 1) !important;  
+  border-color: #ffd700 !important;  
+  box-shadow: 0 0 0 0.3rem rgba(255, 215, 0, 0.3) !important;  
+  color: #ffffff !important;  
+}  
+  
+.form-label {  
+  color: #ffd700 !important;  
+  font-weight: 600;  
+}  
+  
+.form-select {  
+  background-color: rgba(26, 35, 50, 0.9) !important;  
+  border: 2px solid rgba(255, 215, 0, 0.4) !important;  
+  color: #ff6b35 !important;  
+}  
+  
+.form-select:focus {  
+  background-color: rgba(26, 35, 50, 1) !important;  
+  border-color: #ffd700 !important;  
+  box-shadow: 0 0 0 0.3rem rgba(255, 215, 0, 0.3) !important;  
+}  
+  
+/* Alerts */  
+.alert {  
+  border: 2px solid rgba(255, 215, 0, 0.4) !important;  
+}  
+  
+.alert-info {  
+  background-color: rgba(30, 136, 229, 0.2) !important;  
+  color: #64b5f6 !important;  
+}  
+  
+.alert-success {  
+  background-color: rgba(67, 160, 71, 0.2) !important;  
+  color: #81c784 !important;  
+}  
+  
+.alert-warning {  
+  background-color: rgba(255, 215, 0, 0.2) !important;  
+  color: #ffd700 !important;  
+}  
+  
+.alert-danger {  
+  background-color: rgba(192, 57, 43, 0.2) !important;  
+  color: #e57373 !important;  
+}  
+  
+/* Navegación por tabs */  
+.nav-tabs .nav-link {  
+  color: #ff6b35 !important;  
+  border: 2px solid rgba(255, 215, 0, 0.4) !important;  
+}  
+  
+.nav-tabs .nav-link.active {  
+  background-color: #1a2332 !important;  
+  color: #ffd700 !important;  
+  border-color: #ffd700 !important;  
+}  
+  
+.nav-tabs .nav-link:hover {  
+  background-color: rgba(255, 107, 53, 0.15) !important;  
+  color: #ffd700 !important;  
+}  
+  
+/* Textos especiales */  
+.text-muted {  
+  color: rgba(255, 107, 53, 0.6) !important;  
+}  
+  
+.text-primary {  
+  color: #ff6b35 !important;  
+}  
+  
+.text-success {  
+  color: #43a047 !important;  
+}  
+  
+.text-warning {  
+  color: #ffd700 !important;  
+}  
+  
+.text-danger {  
+  color: #c0392b !important;  
+}  
+  
+/* Scrollbar personalizada */  
+::-webkit-scrollbar {  
+  width: 12px;  
+}  
+  
+::-webkit-scrollbar-track {  
+  background: #0a1929;  
+  border-left: 1px solid #ffd700;  
+}  
+  
+::-webkit-scrollbar-thumb {  
+  background: linear-gradient(180deg, #ff6b35, #c0392b);  
+  border-radius: 6px;  
+  border: 2px solid #ffd700;  
+}  
+  
+::-webkit-scrollbar-thumb:hover {  
+  background: linear-gradient(180deg, #ffd700, #ff6b35);  
 }
 
-/* Encabezado */
-h1 {
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-top: 20px;
-}
-
-/* Contenedor de tabla */
-.table-container {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  /* Asegura visibilidad */
-  overflow-x: auto;
-  transition: box-shadow 0.3s ease;
-}
-
-/* Tabla */
-.table th,
-.table td {
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.table thead {
-  background-color: #00796b;
-  color: white;
-}
-
-.table tbody tr:hover {
-  background-color: #e0f2f1;
-}
-
-/* Nombre y apellido */
-.nombre-apellido {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-/* Botones */
-.btn svg {
-  margin-right: 4px;
-  vertical-align: middle;
-}
 
 .acciones a {
   margin-right: 5px;
