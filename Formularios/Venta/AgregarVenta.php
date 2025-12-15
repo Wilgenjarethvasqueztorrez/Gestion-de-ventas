@@ -9,6 +9,98 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">    
     <!-- Agregar Select2 -->    
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />        
+    <link rel="stylesheet" href="../../src/css/styles.css">        
+        <style>    
+      .select2-container {    
+          width: 100% !important; /* Igual que form-select */    
+      }    
+    
+      .select2-selection {    
+          min-height: 38px !important; /* Altura estándar de Bootstrap form-select */    
+          padding: 0.375rem 0.75rem !important; /* Padding de Bootstrap */    
+          font-size: 1rem !important;    
+          line-height: 1.5 !important;    
+          border: 1px solid #ced4da !important;    
+          border-radius: 0.25rem !important;    
+      }    
+    
+      .select2-selection__rendered {    
+          padding: 0 !important;    
+          line-height: 1.5 !important;    
+      }    
+    
+      .select2-selection__arrow {    
+          height: 36px !important;    
+      }    
+      
+      /* Contenedor principal */  
+.select2-container--default .select2-selection--single {  
+    background-color: #132030 !important;  
+    border: 2px solid #ffd700 !important;  
+    color: #ff6b35 !important;  
+}  
+  
+.select2-container--default .select2-selection--single .select2-selection__rendered {  
+    color: #ff6b35 !important;  
+}  
+  
+.select2-container--default .select2-selection--single .select2-selection__arrow b {  
+    border-color: #ffd700 transparent transparent transparent !important;  
+}  
+  
+/* Estado focus */  
+.select2-container--default.select2-container--focus .select2-selection--single {  
+    border-color: #ffd700 !important;  
+    background-color: #1a2332 !important;  
+}  
+  
+/* Dropdown */  
+.select2-dropdown {  
+    background-color: #132030 !important;  
+    border: 2px solid #ffd700 !important;  
+}  
+  
+/* Búsqueda en dropdown */  
+.select2-search--dropdown .select2-search__field {  
+    background-color: #1a2332 !important;  
+    border: 2px solid #ffd700 !important;  
+    color: #ff6b35 !important;  
+}  
+  
+/* Opciones del dropdown */  
+.select2-results__option {  
+    color: #ff6b35 !important;  
+}  
+  
+/* Hover en opciones */  
+.select2-results__option--highlighted {  
+    background-color: rgba(255, 107, 53, 0.2) !important;  
+    color: #ffd700 !important;  
+}  
+  
+/* Opción seleccionada */  
+.select2-results__option[aria-selected="true"] {  
+    background-color: rgba(255, 215, 0, 0.15) !important;  
+    color: #ffd700 !important;  
+}  
+  
+/* Select2 múltiple */  
+.select2-container--default .select2-selection--multiple {  
+    background-color: #132030 !important;  
+    border: 2px solid #ffd700 !important;  
+}  
+  
+.select2-container--default .select2-selection--multiple .select2-selection__choice {  
+    background: #ff6b35 !important;  
+    border: 1px solid #ffd700 !important;  
+    color: white !important;  
+}  
+  
+/* Placeholder */  
+.select2-container--default .select2-selection--placeholder {  
+    color: rgba(255, 107, 53, 0.5) !important;  
+}
+    </style>        
 </head>      
   
 <body>      

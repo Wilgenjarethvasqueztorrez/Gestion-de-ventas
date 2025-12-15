@@ -16,15 +16,15 @@ $ventaActual = $resultado->fetch_assoc();
 // Preparar variables según tipo de venta  
 if ($tipo == 'Contado') {  
     $fecha_inicio = date('Y-m-d');  
-    $fecha_fin = null;  
-    $total_dias = null;  
+    $fecha_fin = NULL;  
+    $total_dias = NULL;  
+    $estado = NULL;  
 } else {  
     // Validar campos requeridos para crédito  
     if (empty($_POST['FechaInicio']) || empty($_POST['FechaFin']) || empty($_POST['EstadoVenta'])) {  
         header("location:../../venta.php?error=campos_requeridos");  
         exit;  
     }  
-      
     $fecha_inicio = $_POST['FechaInicio'];  
     $fecha_fin = $_POST['FechaFin'];  
     $total_dias = $_POST['TotalDias'];  
@@ -37,14 +37,14 @@ if ($ventaActual['producto_id'] != $producto_id) {
     $updateAnterior = $conexion->prepare("UPDATE productos SET cantidad = cantidad + ? WHERE id = ?");  
     $updateAnterior->bind_param("ii", $ventaActual['cantidad_venta'], $ventaActual['producto_id']);  
     $updateAnterior->execute();  
-        
+      
     // Verificar stock del nuevo producto  
     $sqlStock = $conexion->prepare("SELECT cantidad FROM productos WHERE id = ?");  
     $sqlStock->bind_param("i", $producto_id);  
     $sqlStock->execute();  
     $resultadoStock = $sqlStock->get_result();  
     $producto = $resultadoStock->fetch_assoc();  
-        
+      
     if ($producto['cantidad'] < $cantidad_nueva) {  
         // Revertir cambio si no hay stock  
         $revertir = $conexion->prepare("UPDATE productos SET cantidad = cantidad - ? WHERE id = ?");  
@@ -53,7 +53,7 @@ if ($ventaActual['producto_id'] != $producto_id) {
         header("location:../../venta.php?error=stock_insuficiente");  
         exit;  
     }  
-        
+      
     // Restar stock del nuevo producto  
     $updateNuevo = $conexion->prepare("UPDATE productos SET cantidad = cantidad - ? WHERE id = ?");  
     $updateNuevo->bind_param("ii", $cantidad_nueva, $producto_id);  
@@ -68,7 +68,7 @@ if ($ventaActual['producto_id'] != $producto_id) {
         $sqlStock->execute();  
         $resultadoStock = $sqlStock->get_result();  
         $producto = $resultadoStock->fetch_assoc();  
-            
+          
         if ($producto['cantidad'] < $diferencia) {  
             header("location:../../venta.php?error=stock_insuficiente");  
             exit;  
@@ -79,33 +79,20 @@ if ($ventaActual['producto_id'] != $producto_id) {
     $updateStock->execute();  
 }  
   
-// Actualizar la venta - SIGUIENDO EL PATRÓN DE editarAsistencia.php  
-if ($tipo == 'Contado') {  
-    // Query SIN el campo estado para contado (como en editarAsistencia.php líneas 13-19)  
-    $sql = "UPDATE ventas SET     
-            producto_id=?,     
-            cantidad_venta=?,     
-            tipo=?,     
-            fecha_inicio=?,     
-            fecha_fin=?,     
-            total_dias=?    
-            WHERE id=?";  
-    $stmt = $conexion->prepare($sql);  
-    $stmt->bind_param("iisssi", $producto_id, $cantidad_nueva, $tipo, $fecha_inicio, $fecha_fin, $total_dias, $id);  
-} else {  
-    // Query CON el campo estado para crédito  
-    $sql = "UPDATE ventas SET     
-            producto_id=?,     
-            cantidad_venta=?,     
-            tipo=?,     
-            fecha_inicio=?,     
-            fecha_fin=?,     
-            total_dias=?,    
-            estado=?    
-            WHERE id=?";  
-    $stmt = $conexion->prepare($sql);  
-    $stmt->bind_param("iissssii", $producto_id, $cantidad_nueva, $tipo, $fecha_inicio, $fecha_fin, $total_dias, $estado, $id);  
-}  
+// Actualizar la venta - SIEMPRE incluir todos los campos  
+$sql = "UPDATE ventas SET   
+        producto_id=?,   
+        cantidad_venta=?,   
+        tipo=?,   
+        fecha_inicio=?,   
+        fecha_fin=?,   
+        total_dias=?,  
+        estado=?  
+        WHERE id=?";  
+  
+$stmt = $conexion->prepare($sql);  
+$stmt->bind_param("iisssssi", $producto_id, $cantidad_nueva, $tipo,   
+                  $fecha_inicio, $fecha_fin, $total_dias, $estado, $id);  
   
 if ($stmt->execute()) {  
     header("location:../../venta.php?success=editado");  
