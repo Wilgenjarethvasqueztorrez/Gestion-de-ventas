@@ -9,7 +9,7 @@
   // $host = "sql112.infinityfree.com";
   // $user = "rif0_40373614";
   // $pass = "uu626Ffw8LFU74";
-  // $db = "if0_40373614_control_asistencia_completa_2";
+  // $db = "if0_40373614_gestion_de_ventas";
 
   $conexion =new mysqli($host,$user,$pass,$db);
 
