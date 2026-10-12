@@ -1,475 +1,928 @@
-body {  
-  background-color: #0a1929; /* Azul marino profundo (océano Grand Line) */  
-  color: #ff6b35; /* Naranja vibrante (Luffy) */  
-  font-family: 'Segoe UI', sans-serif;  
-  margin: 0;  
-  padding: 0;  
-}  
-  
-/* Encabezado */  
-h1 {  
-  font-weight: bold;  
-  letter-spacing: 1px;  
-  margin-top: 20px;  
-}  
-  
-h1, h2, h3, h4, h5, h6 {    
-  color: #ffd700 !important; /* Dorado (One Piece) */    
-}  
-  
-/* Componentes adicionales del proyecto */  
-.bg-primary {  
-  background-color: #ff6b35 !important; /* Naranja Luffy */  
-}  
-  
-.bg-info {  
-  background-color: #1e88e5 !important; /* Azul océano */  
-}  
-  
-.bg-success {  
-  background-color: #43a047 !important; /* Verde Zoro */  
-}  
-  
-.bg-warning {  
-  background-color: #ffd700 !important; /* Dorado tesoro */  
-}  
-  
-/* Textos especiales */  
-.text-muted {  
-  color: rgba(255, 107, 53, 0.6) !important;  
-}  
-  
-.text-primary {  
-  color: #ff6b35 !important;  
-}  
-  
-.text-success {  
-  color: #43a047 !important;  
-}  
-  
-.text-warning {  
-  color: #ffd700 !important;  
-}  
-  
-.text-danger {  
-  color: #c0392b !important;  
+body {
+  background-color: #0a1929;
+  /* Azul marino profundo (océano Grand Line) */
+  color: #ff6b35;
+  /* Naranja vibrante (Luffy) */
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
+/* Encabezado */
+h1 {
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-top: 20px;
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 72px;
+  font-size: clamp(1.5rem, 2vw, 2.3rem);
+}
+
+.page-title__img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  background: transparent;
+}
+
+.page-title span {
+  line-height: 1.2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #ffd700 !important;
+  /* Dorado (One Piece) */
+}
+
+/* Componentes adicionales del proyecto */
+.bg-primary {
+  background-color: #ff6b35 !important;
+  /* Naranja Luffy */
+}
+
+.bg-info {
+  background-color: #1e88e5 !important;
+  /* Azul océano */
+}
+
+.bg-success {
+  background-color: #43a047 !important;
+  /* Verde Zoro */
+}
+
+.bg-warning {
+  background-color: #ffd700 !important;
+  /* Dorado tesoro */
+}
+
+.bg-fujitora {
+  background-color: rgb(187, 93, 187) !important;
   
-/* Contenedor de tablas */    
-.table-container {    
-  background-color: #132030 !important; /* Azul marino oscuro */    
-  border-radius: 10px;    
-  padding: 20px;    
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);    
-  border: 2px solid rgba(255, 215, 0, 0.3); /* Borde dorado tesoro */    
-  position: relative;  
-}  
-  
-.table-container::before {  
-    content: "⚓";  
-    position: absolute;  
-    top: 10px;  
-    right: 15px;  
-    font-size: 2rem;  
-    opacity: 0.1;  
-}  
-  
-/* Tablas */    
-.table {    
-  background-color: transparent !important;    
-  color: #ff6b35 !important;    
-}    
-    
-.table thead th {    
-  background-color: #1a2332 !important; /* Azul oscuro */    
-  color: #ffd700 !important; /* Dorado */    
-  border-bottom: 3px solid #ffd700 !important;    
-  font-weight: bold;    
-  text-transform: uppercase;  
-  letter-spacing: 1px;  
-}    
-    
-.table tbody tr:hover {    
-  background-color: rgba(255, 107, 53, 0.15) !important;    
-}    
-    
-.table tbody td {    
-  border-bottom: 1px solid rgba(255, 215, 0, 0.2) !important;    
-}   
-  
-/* Filas de datos */    
-.table tbody tr {    
-    background-color: rgba(19, 32, 48, 0.3) !important;    
-    border-bottom: 1px solid rgba(255, 215, 0, 0.1) !important;    
-    transition: all 0.3s ease !important;    
-}    
-    
-.table tbody tr:hover {    
-    background-color: rgba(255, 107, 53, 0.15) !important;    
-    transform: translateX(5px) !important;    
-    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3) !important;    
-}    
-    
-/* Celdas de datos */    
-.table tbody td {    
-    background-color: transparent !important;    
-    color: #ff6b35 !important;    
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;    
-    padding: 12px 8px !important;    
-    vertical-align: middle !important;    
-}    
-  
-.table .badge {    
-    padding: 5px 10px !important;    
-    font-weight: 500 !important;    
-    border: 1px solid rgba(255, 215, 0, 0.3) !important;    
-}    
-  
-/* Botones */    
-.btn {    
-    background: linear-gradient(90deg, #ff6b35, #c0392b) !important; /* Rojo Luffy */    
-    border: 2px solid #ffd700 !important; /* Borde dorado */    
-    color: white !important;    
-    font-weight: 600;    
-    transition: all 0.3s ease;    
-    text-transform: uppercase;  
-    letter-spacing: 0.5px;  
-}    
-    
-.btn:hover {    
-    background: linear-gradient(90deg, #ffd700, #ff6b35) !important;    
-    transform: scale(1.05) rotate(1deg) !important;  
-    box-shadow: 0px 0px 15px #ffd700 !important;    
-    color: #0a1929 !important;    
-}    
-    
-.btn-success {    
-    background: linear-gradient(90deg, #43a047, #2e7d32) !important; /* Verde Zoro */    
-    border-color: #66bb6a !important;  
-}    
-    
-.btn-danger {    
-    background: linear-gradient(90deg, #c0392b, #e74c3c) !important; /* Rojo Akainu */    
-    border-color: #e57373 !important;  
-}    
-    
-.btn-warning {    
-    background: linear-gradient(90deg, #ffd700, #ffa000) !important; /* Dorado tesoro */    
-    color: #0a1929 !important;    
-    border-color: #ffb300 !important;  
-}    
-  
-/* Estados especiales */    
-.table tbody tr:nth-child(even) {    
-    background-color: rgba(26, 35, 50, 0.4) !important;    
-}    
-    
-/* Celdas con texto importante */    
-.table tbody td strong {    
-    color: #ffd700 !important;    
-}    
-    
-/* Celdas con horas o fechas */    
-.table tbody td:contains("hrs"),    
-.table tbody td:contains("/") {    
-    font-family: 'Courier New', monospace !important;    
-    color: #64b5f6 !important;    
-}    
-  
-/* Contenedores de tablas del dashboard */    
-.dashboard-table-container {    
-    background-color: rgba(19, 32, 48, 0.4) !important;    
-    border-radius: 12px !important;    
-    padding: 20px !important;    
-    margin-bottom: 20px !important;    
-    border: 2px solid rgba(255, 215, 0, 0.3) !important;    
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;    
-}    
-    
-/* Tablas específicas del dashboard */    
-.dashboard-table-container .table {    
-    background-color: transparent !important;    
-    color: #ff6b35 !important;    
-    margin-bottom: 0 !important;    
-}    
-    
-/* Encabezados de tablas del dashboard */    
-.dashboard-table-container .table thead th {    
-    background-color: rgba(26, 35, 50, 0.8) !important;    
-    color: #ffd700 !important;    
-    border: none !important;    
-    padding: 15px 12px !important;    
-    font-weight: 600 !important;    
-    text-transform: uppercase !important;    
-    font-size: 0.85rem !important;    
-    letter-spacing: 0.5px !important;    
-}    
-    
-/* Filas de datos en tablas del dashboard */    
-.dashboard-table-container .table tbody tr {    
-    background-color: rgba(10, 25, 41, 0.3) !important;    
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;    
-    transition: all 0.3s ease !important;    
-}    
-    
-.dashboard-table-container .table tbody tr:hover {    
-    background-color: rgba(255, 107, 53, 0.1) !important;    
-    transform: translateX(5px) !important;    
-    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.15) !important;    
-}    
-    
-/* Celdas de datos */    
-.dashboard-table-container .table tbody td {    
-    background-color: transparent !important;    
-    color: #ff6b35 !important;    
-    border: none !important;    
-    padding: 12px !important;    
-    vertical-align: middle !important;    
-}    
-    
-/* Texto fuerte en celdas */    
-.dashboard-table-container .table tbody td strong {    
-    color: #ffd700 !important;    
-    font-weight: 600 !important;    
-}    
-    
-/* Badges en tablas del dashboard */    
-.dashboard-table-container .badge {    
-    padding: 6px 12px !important;    
-    font-weight: 500 !important;    
-    font-size: 0.8rem !important;    
-    border-radius: 6px !important;    
-    border: 1px solid rgba(255, 215, 0, 0.3) !important;    
-}    
-    
-.dashboard-table-container .badge.bg-success {    
-    background: linear-gradient(135deg, #43a047, #2e7d32) !important;    
-    color: white !important;    
-}    
-    
-.dashboard-table-container .badge.bg-warning {    
-    background: linear-gradient(135deg, #ffd700, #ffa000) !important;    
-    color: #0a1929 !important;    
-}    
-    
-.dashboard-table-container .badge.bg-danger {    
-    background: linear-gradient(135deg, #c0392b, #e74c3c) !important;    
-    color: white !important;    
-}    
-    
-/* Estados especiales para tabla de empleados trabajando */    
-.dashboard-table-container .table tbody tr:nth-child(even) {    
-    background-color: rgba(26, 35, 50, 0.4) !important;    
-}    
-    
-/* Texto muted en tablas */    
-.dashboard-table-container .text-muted {    
-    color: rgba(255, 107, 53, 0.5) !important;    
-    font-style: italic !important;    
-}    
-  
-/* Nombre y apellido */  
-.nombre-apellido {  
-  display: flex;  
-  flex-direction: column;  
-  gap: 4px;  
-}  
-  
-.nombre-apellido span:first-child {  
-  color: #ffd700 !important;  
-  font-weight: 700;  
-}  
-  
-.nombre-apellido span:last-child {  
-  color: #64b5f6;  
-  font-size: 0.9em;  
-}  
-  
-/* Botones */  
-.btn svg {  
-  margin-right: 4px;  
-  vertical-align: middle;  
-}  
-  
-.acciones a {  
-  margin-right: 5px;  
-}  
-  
-/* DataTables adaptación */    
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {    
-  background: linear-gradient(90deg, #ff6b35, #c0392b) !important;    
-  border: 2px solid #ffd700 !important;    
-  color: white !important;    
-}    
-    
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover {    
-  background: linear-gradient(90deg, #ffd700, #ff6b35) !important;    
-  color: #0a1929 !important;    
-}  
-  
-/* Componentes adicionales del proyecto */  
-.bg-primary {  
-  background-color: #ff6b35 !important; /* Naranja Luffy */  
-}  
-  
-.bg-info {  
-  background-color: #1e88e5 !important; /* Azul océano */  
-}  
-  
-.bg-success {  
-  background-color: #43a047 !important; /* Verde Zoro */  
-}  
-  
-.bg-warning {  
-  background-color: #ffd700 !important; /* Dorado tesoro */  
-}  
-  
-/* Sidebar adaptación */  
-.sidebar {  
-  background-color: #1a2332 !important; /* Azul oscuro */  
-  border-right: 3px solid #ffd700; /* Línea dorada */  
-}  
-  
-.sidebar .nav-link {  
-  color: #ff6b35 !important;  
-  transition: all 0.3s ease;  
-}  
-  
-.sidebar .nav-link:hover,  
-.sidebar .nav-link.active {  
-  background-color: rgba(255, 107, 53, 0.2) !important;  
-  color: #ffd700 !important;  
-  border-left: 4px solid #ffd700;  
-}  
-  
-/* Cards del dashboard */  
-.card {  
-  background: linear-gradient(135deg, #132030, #1a2332) !important;  
-  border: 2px solid rgba(255, 215, 0, 0.3) !important;  
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);  
-  border-radius: 12px;  
-}  
-  
-.card-body {  
-  color: #ff6b35 !important;  
-}  
-  
-.card-body h5 {  
-  color: #ffd700 !important;  
-}  
-  
-/* Formularios */  
-.form-control {  
-  background-color: rgba(26, 35, 50, 0.9) !important;  
-  border: 2px solid rgba(255, 215, 0, 0.4) !important;  
-  color: #ff6b35 !important;  
-}  
-  
-.form-control:focus {  
-  background-color: rgba(26, 35, 50, 1) !important;  
-  border-color: #ffd700 !important;  
-  box-shadow: 0 0 0 0.3rem rgba(255, 215, 0, 0.3) !important;  
-  color: #ffffff !important;  
-}  
-  
-.form-label {  
-  color: #ffd700 !important;  
-  font-weight: 600;  
-}  
-  
-.form-select {  
-  background-color: rgba(26, 35, 50, 0.9) !important;  
-  border: 2px solid rgba(255, 215, 0, 0.4) !important;  
-  color: #ff6b35 !important;  
-}  
-  
-.form-select:focus {  
-  background-color: rgba(26, 35, 50, 1) !important;  
-  border-color: #ffd700 !important;  
-  box-shadow: 0 0 0 0.3rem rgba(255, 215, 0, 0.3) !important;  
-}  
-  
-/* Alerts */  
-.alert {  
-  border: 2px solid rgba(255, 215, 0, 0.4) !important;  
-}  
-  
-.alert-info {  
-  background-color: rgba(30, 136, 229, 0.2) !important;  
-  color: #64b5f6 !important;  
-}  
-  
-.alert-success {  
-  background-color: rgba(67, 160, 71, 0.2) !important;  
-  color: #81c784 !important;  
-}  
-  
-.alert-warning {  
-  background-color: rgba(255, 215, 0, 0.2) !important;  
-  color: #ffd700 !important;  
-}  
-  
-.alert-danger {  
-  background-color: rgba(192, 57, 43, 0.2) !important;  
-  color: #e57373 !important;  
-}  
-  
-/* Navegación por tabs */  
-.nav-tabs .nav-link {  
-  color: #ff6b35 !important;  
-  border: 2px solid rgba(255, 215, 0, 0.4) !important;  
-}  
-  
-.nav-tabs .nav-link.active {  
-  background-color: #1a2332 !important;  
-  color: #ffd700 !important;  
-  border-color: #ffd700 !important;  
-}  
-  
-.nav-tabs .nav-link:hover {  
-  background-color: rgba(255, 107, 53, 0.15) !important;  
-  color: #ffd700 !important;  
-}  
-  
-/* Textos especiales */  
-.text-muted {  
-  color: rgba(255, 107, 53, 0.6) !important;  
-}  
-  
-.text-primary {  
-  color: #ff6b35 !important;  
-}  
-  
-.text-success {  
-  color: #43a047 !important;  
-}  
-  
-.text-warning {  
-  color: #ffd700 !important;  
-}  
-  
-.text-danger {  
-  color: #c0392b !important;  
-}  
-  
-/* Scrollbar personalizada */  
-::-webkit-scrollbar {  
-  width: 12px;  
-}  
-  
-::-webkit-scrollbar-track {  
-  background: #0a1929;  
-  border-left: 1px solid #ffd700;  
-}  
-  
-::-webkit-scrollbar-thumb {  
-  background: linear-gradient(180deg, #ff6b35, #c0392b);  
-  border-radius: 6px;  
-  border: 2px solid #ffd700;  
-}  
-  
-::-webkit-scrollbar-thumb:hover {  
-  background: linear-gradient(180deg, #ffd700, #ff6b35);  
+} 
+
+/* Textos especiales */
+.text-muted {
+  color: rgba(255, 107, 53, 0.6) !important;
+}
+
+.text-primary {
+  color: #ff6b35 !important;
+}
+
+.text-success {
+  color: #43a047 !important;
+}
+
+.text-warning {
+  color: #ffd700 !important;
+}
+
+.text-danger {
+  color: #c0392b !important;
+}
+
+/* Contenedor de tablas */
+.table-container {
+  background-color: #132030 !important;
+  /* Azul marino oscuro */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  /* Borde dorado tesoro */
+  position: relative;
+  overflow-x: hidden;
+}
+
+
+.tabla-ventas thead th,
+.tabla-ventas tbody td {
+  padding: 7px 5px !important;
+}
+
+.tabla-ventas thead th {
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.tabla-ventas .acciones {
+  min-width: 165px;
+  gap: 3px;
+}
+
+.tabla-ventas .acciones a {
+  padding: 4px 6px;
+  font-size: 0.7rem;
+  letter-spacing: 0;
+}
+
+.tabla-ventas .badge {
+  padding: 4px 6px !important;
+  white-space: nowrap;
+}
+
+.table-container::before {
+  content: "⚓";
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+/* Tablas */
+.table {
+  background-color: transparent !important;
+  color: #ff6b35 !important;
+}
+
+.table thead th {
+  background-color: #1a2332 !important;
+  /* Azul oscuro */
+  color: #ffd700 !important;
+  /* Dorado */
+  border-bottom: 3px solid #ffd700 !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(255, 107, 53, 0.15) !important;
+}
+
+.table tbody td {
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2) !important;
+}
+
+/* Filas de datos */
+.table tbody tr {
+  background-color: rgba(19, 32, 48, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(255, 107, 53, 0.15) !important;
+  transform: translateX(5px) !important;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3) !important;
+}
+
+/* Celdas de datos */
+.table tbody td {
+  background-color: transparent !important;
+  color: #ff6b35 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  padding: 12px 8px !important;
+  vertical-align: middle !important;
+}
+
+.table .badge {
+  padding: 5px 10px !important;
+  font-weight: 500 !important;
+  border: 1px solid rgba(255, 215, 0, 0.3) !important;
+}
+
+/* Botones */
+.btn {
+  background: linear-gradient(90deg, #ff6b35, #c0392b) !important;
+  /* Rojo Luffy */
+  border: 2px solid #ffd700 !important;
+  /* Borde dorado */
+  color: white !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #ffd700, #ff6b35) !important;
+  transform: scale(1.05) rotate(1deg) !important;
+  box-shadow: 0px 0px 15px #ffd700 !important;
+  color: #0a1929 !important;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #ff6b35, #c0392b) !important;
+  /* Rojo Luffy */
+  border-color: #ffd700 !important;
+}
+
+.btn-info {
+  background: linear-gradient(90deg, #1e88e5, #1565c0) !important;
+  /* Azul océano */
+  border-color: #64b5f6 !important;
+}
+
+.btn-secondary {
+  background: linear-gradient(90deg, #6c757d, #495057) !important;
+  /* Gris oscuro */
+  border-color: #adb5bd !important;
+}
+
+.btn-success {
+  background: linear-gradient(90deg, #43a047, #2e7d32) !important;
+  /* Verde Zoro */
+  border-color: #66bb6a !important;
+}
+
+.btn-danger {
+  background: linear-gradient(90deg, #c0392b, #e74c3c) !important;
+  /* Rojo Akainu */
+  border-color: #e57373 !important;
+}
+
+.btn-warning {
+  background: linear-gradient(90deg, #ffd700, #ffa000) !important;
+  /* Dorado tesoro */
+  color: #0a1929 !important;
+  border-color: #ffb300 !important;
+}
+
+.btn-akainu {
+  background: linear-gradient(90deg, #c0392b, #e74c3c) !important;
+  /* Rojo Akainu */
+  color: white !important;
+  border-color: #e57373 !important;
+}
+
+/* Estados especiales */
+.table tbody tr:nth-child(even) {
+  background-color: rgba(26, 35, 50, 0.4) !important;
+}
+
+/* Celdas con texto importante */
+.table tbody td strong {
+  color: #ffd700 !important;
+}
+
+/* Celdas con horas o fechas */
+.table tbody td:contains("hrs"),
+.table tbody td:contains("/") {
+  font-family: 'Courier New', monospace !important;
+  color: #64b5f6 !important;
+}
+
+/* Contenedores de tablas del dashboard */
+.dashboard-table-container {
+  background-color: rgba(19, 32, 48, 0.4) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  margin-bottom: 20px !important;
+  border: 2px solid rgba(255, 215, 0, 0.3) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Tablas específicas del dashboard */
+.dashboard-table-container .table {
+  background-color: transparent !important;
+  color: #ff6b35 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Encabezados de tablas del dashboard */
+.dashboard-table-container .table thead th {
+  background-color: rgba(26, 35, 50, 0.8) !important;
+  color: #ffd700 !important;
+  border: none !important;
+  padding: 15px 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Filas de datos en tablas del dashboard */
+.dashboard-table-container .table tbody tr {
+  background-color: rgba(10, 25, 41, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.3s ease !important;
+}
+
+.dashboard-table-container .table tbody tr:hover {
+  background-color: rgba(255, 107, 53, 0.1) !important;
+  transform: translateX(5px) !important;
+  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.15) !important;
+}
+
+/* Celdas de datos */
+.dashboard-table-container .table tbody td {
+  background-color: transparent !important;
+  color: #ff6b35 !important;
+  border: none !important;
+  padding: 12px !important;
+  vertical-align: middle !important;
+}
+
+/* Texto fuerte en celdas */
+.dashboard-table-container .table tbody td strong {
+  color: #ffd700 !important;
+  font-weight: 600 !important;
+}
+
+/* Badges en tablas del dashboard */
+.dashboard-table-container .badge {
+  padding: 6px 12px !important;
+  font-weight: 500 !important;
+  font-size: 0.8rem !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(255, 215, 0, 0.3) !important;
+}
+
+.dashboard-table-container .badge.bg-success {
+  background: linear-gradient(135deg, #43a047, #2e7d32) !important;
+  color: white !important;
+}
+
+.dashboard-table-container .badge.bg-warning {
+  background: linear-gradient(135deg, #ffd700, #ffa000) !important;
+  color: #0a1929 !important;
+}
+
+.dashboard-table-container .badge.bg-danger {
+  background: linear-gradient(135deg, #c0392b, #e74c3c) !important;
+  color: white !important;
+}
+
+/* Estados especiales para tabla de empleados trabajando */
+.dashboard-table-container .table tbody tr:nth-child(even) {
+  background-color: rgba(26, 35, 50, 0.4) !important;
+}
+
+/* Texto muted en tablas */
+.dashboard-table-container .text-muted {
+  color: rgba(255, 107, 53, 0.5) !important;
+  font-style: italic !important;
+}
+
+/* Nombre y apellido */
+.nombre-apellido {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.nombre-apellido strong {
+  color: #ffd700 !important;
+  font-weight: 700;
+}
+
+.nombre-apellido span:last-child {
+  color: #64b5f6;
+  font-size: 0.9em;
+}
+
+/* Botones */
+.btn svg {
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.acciones a {
+  margin-right: 5px;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.acciones {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 190px;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+/* ============================================  
+   PAGINACIÓN DE DATATABLES - ESTILO ONE PIECE
+   ============================================ */
+
+/* Contenedor general de los botones de paginación */
+.dataTables_wrapper .dataTables_paginate {
+  padding-top: 15px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+/* Margen inferior para el contenedor de botones de DataTables */
+div.dataTables_wrapper div.dt-buttons {
+  margin-bottom: 20px !important; /* Ajusta el valor según lo que necesites */
+}
+
+/* Estilo base para TODOS los botones */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  background: linear-gradient(135deg, #132030 0%, #1a2332 100%) !important;
+  color: #ff6b35 !important; /* Naranja Luffy */
+  border: 2px solid #ffd700 !important; /* Dorado tesoro */
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+/* Botón activo */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: linear-gradient(135deg, #ff6b35 0%, #c0392b 100%) !important;
+  border-color: #ffd700 !important;
+  color: #0a1929 !important; /* Texto oscuro para contraste */
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4) !important;
+}
+
+/* Hover general */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: #ffd700 !important; /* Dorado tesoro */
+  border-color: #ff6b35 !important;
+  color: #0a1929 !important;
+  transform: translateY(-1px) scale(1.05);
+}
+
+/* Botones Anterior y Siguiente */
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous,
+.dataTables_wrapper .dataTables_paginate .paginate_button.next {
+  background: #132030 !important;
+  border: 2px solid #ff6b35 !important;
+  color: #ffd700 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+/* Hover específico para Anterior y Siguiente */
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.next:hover {
+  background: #ff6b35 !important;
+  color: #0a1929 !important;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25) !important;
+  transform: translateY(-2px);
+}
+
+.dataTables_wrapper .dataTables_paginate span {
+  display: flex !important;
+  gap: 3px !important; /* Ajusta el valor según lo que necesites */
+}
+
+
+/* Botón "Anterior" con ícono pirata */
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous::before {
+  content: "⚓"; /* Ancla marinera */
+  margin-right: 6px;
+  color: #ffd700;
+}
+
+/* Botón "Siguiente" con ícono pirata */
+.dataTables_wrapper .dataTables_paginate .paginate_button.next::after {
+  content: "🏴‍☠️"; /* Bandera pirata */
+  margin-left: 6px;
+  color: #ffd700;
+}
+
+/* Botón deshabilitado */
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+  background: #1a2332 !important;
+  border-color: #555 !important;
+  color: #777 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}
+
+/* Selector de cantidad de registros */
+.dataTables_wrapper .dataTables_length {
+  color: #ffd700 !important;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.dataTables_wrapper .dataTables_length select {
+  background-color: #132030 !important;
+  color: #ff6b35 !important;
+  border: 1px solid #ffd700 !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+  margin: 0 5px !important;
+  font-weight: bold;
+  outline: none;
+}
+
+/* BARRA DE BÚSQUEDA */
+.dataTables_wrapper .dataTables_filter {
+  color: #ffd700 !important;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  background-color: #132030 !important;
+  color: #ff6b35 !important;
+  border: 2px solid #ffd700 !important;
+  border-radius: 30px !important;
+  padding: 8px 20px !important;
+  width: 280px !important;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4) !important;
+  transition: all 0.3s ease-in-out !important;
+  outline: none !important;
+}
+
+/* Efecto al hacer foco */
+.dataTables_wrapper .dataTables_filter input:focus {
+  width: 320px !important;
+  border-color: #43a047 !important; /* Verde Zoro */
+  box-shadow: 0 0 15px rgba(67, 160, 71, 0.6) !important;
+  background-color: #0a1929 !important;
+}
+
+/* Info de registros */
+.dataTables_wrapper .dataTables_info {
+  color: #ffd700 !important;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+
+/* Componentes adicionales del proyecto */
+.bg-primary {
+  background-color: #ff6b35 !important;
+  /* Naranja Luffy */
+}
+
+.bg-info {
+  background-color: #1e88e5 !important;
+  /* Azul océano */
+}
+
+.bg-success {
+  background-color: #43a047 !important;
+  /* Verde Zoro */
+}
+
+.bg-warning {
+  background-color: #ffd700 !important;
+  /* Dorado tesoro */
+}
+
+/* Sidebar adaptación */
+.sidebar {
+  background-color: #1a2332 !important;
+  /* Azul oscuro */
+  border-right: 3px solid #ffd700;
+  /* Línea dorada */
+}
+
+.sidebar .nav-link {
+  color: #ff6b35 !important;
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  background-color: rgba(255, 107, 53, 0.2) !important;
+  color: #ffd700 !important;
+  border-left: 4px solid #ffd700;
+}
+
+/* Cards del dashboard */
+.card {
+  background: linear-gradient(135deg, #132030, #1a2332) !important;
+  border: 2px solid rgba(255, 215, 0, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+}
+
+.card-body {
+  color: #ff6b35 !important;
+}
+
+.card-body h5 {
+  color: #ffd700 !important;
+}
+
+/* Formularios */
+/* Contenedor tipo Tarjeta */
+.form-card-container {
+  background: #132030 !important;
+  /* Azul marino oscuro */
+  border-radius: 16px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6) !important;
+  padding: 2.5rem !important;
+  margin: 2rem auto;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  /* Dorado tesoro */
+  max-width: 800px;
+}
+
+/* Títulos */
+.form-title-custom {
+  background: linear-gradient(135deg, #ff6b35, #c0392b) !important;
+  /* Naranja → Rojo */
+  color: #ffd700 !important;
+  /* Dorado */
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  padding: 1rem !important;
+  font-size: 1.75rem !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Etiquetas (Labels) */
+.form-label-custom {
+  color: #ffd700 !important;
+  /* Dorado tesoro */
+  font-weight: 600 !important;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  display: inline-block;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  /* Sombra para resaltar sobre fondo marino */
+  letter-spacing: 0.5px;
+}
+
+
+/* Inputs */
+.form-control-custom {
+  background-color: #0a1929 !important;
+  border: 2px solid #ffd700 !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  color: #ff6b35 !important;
+  font-weight: 500;
+  margin-top: 7px;
+  transition: all 0.25s ease-in-out !important;
+}
+
+.form-control-custom:focus {
+  background-color: #132030 !important;
+  border-color: #ff6b35 !important;
+  box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.3) !important;
+  color: #ffd700 !important;
+  outline: none;
+}
+
+/* Botones */
+.btn-submit-custom {
+  background: linear-gradient(135deg, #ffd700, #ff6b35) !important;
+  color: #0a1929 !important;
+  border: 2px solid #ffd700 !important;
+  padding: 10px 30px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-submit-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 215, 0, 0.5) !important;
+  background: linear-gradient(135deg, #ff6b35, #c0392b) !important;
+  color: #ffd700 !important;
+}
+
+.btn-cancel-custom {
+  background: #c0392b !important;
+  color: #ffffff !important;
+  border: 2px solid #ffd700 !important;
+  padding: 10px 30px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-cancel-custom:hover {
+  transform: translateY(-2px);
+  background: #ff6b35 !important;
+  color: #0a1929 !important;
+}
+
+
+.form-control {
+  background-color: rgba(26, 35, 50, 0.9) !important;
+  border: 2px solid rgba(255, 215, 0, 0.4) !important;
+  color: #ff6b35 !important;
+}
+
+.form-control:focus {
+  background-color: rgba(26, 35, 50, 1) !important;
+  border-color: #ffd700 !important;
+  box-shadow: 0 0 0 0.3rem rgba(255, 215, 0, 0.3) !important;
+  color: #ffffff !important;
+}
+
+.form-label {
+  color: #ffd700 !important;
+  font-weight: 600;
+}
+
+.form-select {
+  background-color: rgba(26, 35, 50, 0.9) !important;
+  border: 2px solid rgba(255, 215, 0, 0.4) !important;
+  color: #ff6b35 !important;
+}
+
+.form-select:focus {
+  background-color: rgba(26, 35, 50, 1) !important;
+  border-color: #ffd700 !important;
+  box-shadow: 0 0 0 0.3rem rgba(255, 215, 0, 0.3) !important;
+}
+
+/* ============================================  
+    SELECT2  
+   ============================================ */
+
+.select2-container {
+  width: 100% !important;
+  /* Igual que form-select */
+}
+
+.select2-selection {
+  min-height: 44px !important;
+  /* antes 38px */
+  padding: 10px 14px !important;
+  /* antes 0.375rem 0.75rem */
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  border: 2px solid #ffd700 !important;
+  border-radius: 0.50rem !important;
+  background-color: #132030 !important;
+  color: #ff6b35 !important;
+}
+
+.select2-selection__rendered {
+  padding: 0 !important;
+  line-height: 1.5 !important;
+  color: #ff6b35 !important;
+}
+
+.select2-selection__arrow {
+  height: 42px !important;
+}
+
+.select2-selection__arrow b {
+  border-color: #ffd700 transparent transparent transparent !important;
+}
+
+/* Contenedor principal */
+.select2-container--default .select2-selection--single {
+  background-color: #132030 !important;
+  border: 2px solid #ffd700 !important;
+  color: #ff6b35 !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #ff6b35 !important;
+}
+
+/* Estado focus */
+.select2-container--default.select2-container--focus .select2-selection--single {
+  border-color: #ffd700 !important;
+  background-color: #1a2332 !important;
+}
+
+/* Dropdown */
+.select2-dropdown {
+  background-color: #132030 !important;
+  border: 2px solid #ffd700 !important;
+}
+
+/* Campo de búsqueda */
+.select2-search--dropdown .select2-search__field {
+  background-color: #1a2332 !important;
+  border: 2px solid #ffd700 !important;
+  color: #ff6b35 !important;
+}
+
+/* Opciones */
+.select2-results__option {
+  color: #ff6b35 !important;
+}
+
+.select2-results__option--highlighted {
+  background-color: rgba(255, 107, 53, 0.2) !important;
+  color: #ffd700 !important;
+}
+
+.select2-results__option[aria-selected="true"] {
+  background-color: rgba(255, 215, 0, 0.15) !important;
+  color: #ffd700 !important;
+}
+
+/* Select2 múltiple */
+.select2-container--default .select2-selection--multiple {
+  background-color: #132030 !important;
+  border: 2px solid #ffd700 !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background: #ff6b35 !important;
+  border: 1px solid #ffd700 !important;
+  color: white !important;
+}
+
+/* Placeholder */
+.select2-container--default .select2-selection--placeholder {
+  color: rgba(255, 107, 53, 0.5) !important;
+}
+
+
+/* Alerts */
+.alert {
+  border: 2px solid rgba(255, 215, 0, 0.4) !important;
+}
+
+.alert-info {
+  background-color: rgba(30, 136, 229, 0.2) !important;
+  color: #64b5f6 !important;
+}
+
+.alert-success {
+  background-color: rgba(67, 160, 71, 0.2) !important;
+  color: #81c784 !important;
+}
+
+.alert-warning {
+  background-color: rgba(255, 215, 0, 0.2) !important;
+  color: #ffd700 !important;
+}
+
+.alert-danger {
+  background-color: rgba(192, 57, 43, 0.2) !important;
+  color: #e57373 !important;
+}
+
+/* Navegación por tabs */
+.nav-tabs .nav-link {
+  color: #ff6b35 !important;
+  border: 2px solid rgba(255, 215, 0, 0.4) !important;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #1a2332 !important;
+  color: #ffd700 !important;
+  border-color: #ffd700 !important;
+}
+
+.nav-tabs .nav-link:hover {
+  background-color: rgba(255, 107, 53, 0.15) !important;
+  color: #ffd700 !important;
+}
+
+/* Textos especiales */
+.text-muted {
+  color: rgba(255, 107, 53, 0.6) !important;
+}
+
+.text-primary {
+  color: #ff6b35 !important;
+}
+
+.text-success {
+  color: #43a047 !important;
+}
+
+.text-warning {
+  color: #ffd700 !important;
+}
+
+.text-danger {
+  color: #c0392b !important;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a1929;
+  border-left: 1px solid #ffd700;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff6b35, #c0392b);
+  border-radius: 6px;
+  border: 2px solid #ffd700;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffd700, #ff6b35);
 }
 
 
@@ -478,106 +931,110 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*Barra de usuario logeado*/
-.user-header-bar {  
-  display: flex;  
-  justify-content: space-between;  
-  align-items: center;  
-  padding: 1rem 1.5rem;  
-  margin-bottom: 1.5rem;  
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  
-  border-radius: 12px;  
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  
-}  
-  
-.user-info-section {  
-  display: flex;  
-  align-items: center;  
-  gap: 1rem;  
-}  
-  
-.user-avatar {  
-  font-size: 2.5rem;  
-  color: white;  
-  display: flex;  
-  align-items: center;  
-}  
-  
-.user-details {  
-  display: flex;  
-  flex-direction: column;  
-  gap: 0.25rem;  
-}  
-  
-.welcome-text {  
-  color: rgba(255, 255, 255, 0.8);  
-  font-size: 0.875rem;  
-  font-weight: 400;  
-}  
-  
-.user-name {  
-  color: white;  
-  font-size: 1.125rem;  
-  font-weight: 600;  
-  line-height: 1.2;  
-}  
-  
-.role-badge {  
-  background: rgba(255, 255, 255, 0.2);  
-  color: white;  
-  padding: 0.25rem 0.75rem;  
-  border-radius: 20px;  
-  font-size: 0.75rem;  
-  font-weight: 500;  
-  backdrop-filter: blur(10px);  
-  border: 1px solid rgba(255, 255, 255, 0.3);  
-  width: fit-content;  
-}  
-  
-.btn-logout {  
-  background: rgba(255, 255, 255, 0.15);  
-  color: white;  
-  border: 1px solid rgba(255, 255, 255, 0.3);  
-  padding: 0.5rem 1.25rem;  
-  border-radius: 8px;  
-  font-weight: 500;  
-  transition: all 0.3s ease;  
-  display: flex;  
-  align-items: center;  
-  gap: 0.5rem;  
-  backdrop-filter: blur(10px);  
-}  
-  
-.btn-logout:hover {  
-  background: rgba(255, 255, 255, 0.25);  
-  color: white;  
-  transform: translateY(-2px);  
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  
-}  
-  
-.btn-logout i {  
-  font-size: 1.125rem;  
-}  
+.user-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.user-info-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-avatar {
+  font-size: 2.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.welcome-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.user-name {
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.role-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: fit-content;
+}
+
+.btn-logout {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.btn-logout:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-logout i {
+  font-size: 1.125rem;
+}
 
 /*dashboard*/
 .card {
   border: none;
   border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
 }
+
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
 }
+
 .dashboard-table-container {
   background: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
+
 h1 {
   font-weight: 700;
 }
+
 h3 {
   color: #343a40;
   font-weight: 600;
@@ -695,14 +1152,9 @@ h3 {
     padding: 10px;
   }
 
-  .nombre-apellido {
-    flex-direction: row;
-    gap: 10px;
-  }
-
   .acciones a {
-    display: block;
-    margin-bottom: 5px;
+    display: inline-flex;
+    margin-bottom: 0;
   }
 
   h1 {
@@ -714,18 +1166,18 @@ h3 {
     left: -200px;
   }
 
-  .user-header-bar {  
-    flex-direction: column;  
-    gap: 1rem;  
-    text-align: center;  
-  }  
-    
-  .user-info-section {  
-    flex-direction: column;  
-    text-align: center;  
-  }  
-    
-  .user-details {  
-    align-items: center;  
-  }  
+  .user-header-bar {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .user-info-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .user-details {
+    align-items: center;
+  }
 }
