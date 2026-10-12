@@ -1,13 +1,13 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <?php  
-// Consulta para obtener las ventas por producto  
+// Consulta para obtener las unidades vendidas por producto
 $sqlVentasPorProducto = $conexion->query("  
-    SELECT p.nombre, COUNT(v.id) as total_ventas  
+    SELECT p.nombre, COALESCE(SUM(vd.cantidad), 0) AS total_unidades
     FROM productos p  
-    LEFT JOIN ventas v ON p.id = v.producto_id  
+    INNER JOIN ventas_detalles vd ON p.id = vd.producto_id
     GROUP BY p.id, p.nombre  
-    HAVING total_ventas > 0  
-    ORDER BY total_ventas DESC  
+    HAVING total_unidades > 0
+    ORDER BY total_unidades DESC
     LIMIT 10  
 ");  
   
@@ -16,7 +16,7 @@ $ventas = [];
   
 while ($row = $sqlVentasPorProducto->fetch_assoc()) {  
     $productos[] = $row['nombre'];  
-    $ventas[] = $row['total_ventas'];  
+    $ventas[] = (int)$row['total_unidades'];
 }  
 ?>  
   
@@ -28,7 +28,7 @@ const ventasChart = new Chart(ctx, {
     data: {  
         labels: <?php echo json_encode($productos); ?>,  
         datasets: [{  
-            label: 'Cantidad de Ventas',  
+            label: 'Unidades vendidas',
             data: <?php echo json_encode($ventas); ?>,  
             backgroundColor: [  
                 '#FF6384',  
@@ -74,7 +74,7 @@ const ventasChart = new Chart(ctx, {
                         }  
                         const total = context.dataset.data.reduce((a, b) => a + b, 0);  
                         const percentage = ((context.parsed / total) * 100).toFixed(1);  
-                        label += context.parsed + ' ventas (' + percentage + '%)';  
+                        label += context.parsed + ' unidades (' + percentage + '%)';
                         return label;  
                     }  
                 }  
