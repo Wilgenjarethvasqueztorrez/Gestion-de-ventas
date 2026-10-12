@@ -1,40 +1,42 @@
-<?php  
-require("../../Config/Conexion.php");  
-  
-$id = $_GET['Id'];  
-  
-// Obtener datos de la venta antes de eliminar  
-$sql = $conexion->prepare("SELECT producto_id, cantidad_venta FROM ventas WHERE id = ?");  
-$sql->bind_param("i", $id);  
-$sql->execute();  
-$resultado = $sql->get_result();  
-$venta = $resultado->fetch_assoc();  
-  
-if (!$venta) {  
-    header("location:../../venta.php?error=no_existe");  
-    exit;  
-}  
-  
-$producto_id = $venta['producto_id'];  
-$cantidad = $venta['cantidad_venta'];  
-  
-// Eliminar la venta  
-$delete = $conexion->prepare("DELETE FROM ventas WHERE id = ?");  
-$delete->bind_param("i", $id);  
-  
-if ($delete->execute()) {  
-    // Devolver stock al producto  
-    $update = $conexion->prepare("UPDATE productos SET cantidad = cantidad + ? WHERE id = ?");  
-    $update->bind_param("ii", $cantidad, $producto_id);  
-    $update->execute();  
-      
-    header("location:../../venta.php?success=eliminado");  
-} else {  
-    header("location:../../venta.php?error=db");  
-}  
-  
-$sql->close();  
-$delete->close();  
-$update->close();  
-$conexion->close();  
+<?php
+require_once __DIR__ . "/../../Config/Ruta.php";
+require_once BASE_PATH . "Config/Conexion.php";
+
+$id = filter_input(INPUT_GET, 'Id', FILTER_VALIDATE_INT);
+if (!$id) {
+    header("Location: " . BASE_URL . "pages/venta.php?error=no_existe");
+    exit;
+}
+
+try {
+    $conexion->begin_transaction();
+    $obtenerDetalles = $conexion->prepare("SELECT producto_id, SUM(cantidad) AS cantidad FROM ventas_detalles WHERE venta_id = ? GROUP BY producto_id");
+    $obtenerDetalles->bind_param("i", $id);
+    $obtenerDetalles->execute();
+    $detalles = $obtenerDetalles->get_result();
+
+    $devolverStock = $conexion->prepare("UPDATE productos SET cantidad = cantidad + ? WHERE id = ?");
+    while ($detalle = $detalles->fetch_assoc()) {
+        $cantidad = (int)$detalle['cantidad'];
+        $producto_id = (int)$detalle['producto_id'];
+        $devolverStock->bind_param("ii", $cantidad, $producto_id);
+        $devolverStock->execute();
+    }
+
+    $eliminarDetalles = $conexion->prepare("DELETE FROM ventas_detalles WHERE venta_id = ?");
+    $eliminarDetalles->bind_param("i", $id);
+    $eliminarDetalles->execute();
+    $eliminarVenta = $conexion->prepare("DELETE FROM ventas WHERE id = ?");
+    $eliminarVenta->bind_param("i", $id);
+    $eliminarVenta->execute();
+    if ($eliminarVenta->affected_rows !== 1) {
+        throw new RuntimeException('no_existe');
+    }
+
+    $conexion->commit();
+    header("Location: " . BASE_URL . "pages/venta.php?success=eliminado");
+} catch (Throwable $error) {
+    $conexion->rollback();
+    header("Location: " . BASE_URL . "pages/venta.php?error=" . ($error->getMessage() === 'no_existe' ? 'no_existe' : 'db'));
+}
 ?>
